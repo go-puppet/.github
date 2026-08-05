@@ -33,7 +33,7 @@ custom functions.
 
 | Repo | What it is |
 |------|------------|
-| [**puppet**](https://github.com/go-puppet/puppet) | the library: `lexer`, `parser`, `ast`, `eval`, `catalog` — parse a manifest and compile it to a catalog |
+| [**puppet**](https://github.com/go-puppet/puppet) | the library: `lexer`, `parser`, `ast`, `eval`, `catalog`, `hcl` — parse a manifest (Puppet `.pp` or Terraform-style HCL2) and compile it to a catalog |
 | [**docs**](https://github.com/go-puppet/docs) | MkDocs Material documentation, versioned with [mike], served at [/docs/](https://go-puppet.github.io/docs/) |
 | [**go-puppet.github.io**](https://github.com/go-puppet/go-puppet.github.io) | the Hugo landing page |
 | [**brand**](https://github.com/go-puppet/brand) | logos and brand assets |
@@ -58,7 +58,10 @@ function definitions, calls with lambdas, relationship chaining) and an evaluato
 `lookup()` via go-hiera, facts via go-facter) that compiles to a Puppet catalog —
 at 100% coverage, `gofmt` + `go vet` clean, CI green across amd64, arm64, riscv64,
 loong64, ppc64le and s390x. EPP/ERB templates, resource defaults/overrides/
-collectors, exported resources and the full stdlib are staged for v0.2.
+collectors, exported resources, the plan/apply language, an extensive stdlib and a
+Terraform-style HCL2 front-end (`hcl.Parse` → the same catalog) are all
+implemented; Pcore type constructors beyond the scalar core and the HCL2 v0.2
+expression set are still in progress.
 
 BSD-3-Clause.
 
